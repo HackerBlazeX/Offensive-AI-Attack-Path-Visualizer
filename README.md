@@ -140,17 +140,21 @@ No messy terminal output — only **clear offensive insight**.
 
 ## ⚙️ Installation (Windows – Easy)
 
-### 1️⃣ Clone the repository
 ```powershell
+# 1️⃣ Clone the repository
 git clone https://github.com/HackerBlazeX/Offensive-AI-Attack-Path-Visualizer.git
 cd Offensive-AI-Attack-Path-Visualizer
-2️⃣ Install dependencies
+
+# 2️⃣ Install dependencies
 pip install -r requirements.txt
-3️⃣ Start local LLM server (llama.cpp)
+
+# 3️⃣ Start local LLM server (llama.cpp)
 .\llama-server.exe -m path\to\model.gguf -c 4096 -t 6 -ngl 35
-4️⃣ Run the framework
+
+# 4️⃣ Run the framework
 streamlit run Offensive-AI.py
-Open in browser:
+
+# 5️⃣ Open in browser
 http://localhost:8501
 
 ⚠️ Important Note
