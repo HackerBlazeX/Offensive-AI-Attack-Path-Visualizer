@@ -241,6 +241,24 @@ This makes the framework ideal for:
 - ⏱️ Timestamped, domain-based filenames  
 - ⬇️ Instant download from the dashboard
 - 🛡️ Legal, authorised & exploit-less by design  
+- 🎯 **Multiple Scan Modes**
+- ⚙️ **Normal Mode** – Balanced recon & analysis for general security testing  
+- 🏆 **Bug Bounty Mode** – Low-noise, safe, scope-friendly scanning ideal for bounty programs  
+- 🎓 **Learning Mode** – Beginner-friendly explanations with AI-assisted reasoning (Hinglish support)
+Each mode intelligently adjusts:
+- 🧰 Tool execution behaviour  
+- 🔊 Noise vs signal balance  
+- 🧠 Explanation depth  
+This makes the framework usable for **both professionals and learners** 🚀
+- 📦 **Smart Dependency Checker & Auto Installer**
+- Automatically checks required & optional tools on startup
+- Detects missing tools in the user’s system
+- Prompts the user before installing anything
+- Installs missing tools automatically (Windows – Chocolatey based)
+- Skips tools that are already installed
+- Ensures a smooth, beginner-friendly first-time setup
+- No manual dependency hunting or broken PATH issues
+
 
 ---
 
@@ -258,6 +276,7 @@ It does **NOT** provide:
 - Illegal automation
 
 Always follow scope, permissions, and local laws.
+ℹ️ The framework never installs tools without explicit user consent.
 
 
 ---
@@ -290,6 +309,30 @@ streamlit run Offensive-AI.py
 
 # 5️⃣ Open in browser
 http://localhost:8501
+
+## ⚠️ Important: Hardcoded Paths Notice
+
+Some paths inside the framework (for example **ParamSpider results directory, Nikto path, local tool locations**)  
+are currently **configured based on the developer’s local Windows environment**.
+
+🔧 **What you need to do:**
+- Review variables like:
+  - `PARAMSPIDER_BASE`
+  - `PARAMSPIDER_RESULTS_DIR`
+  - `nikto_path`
+- Update them **according to your own system paths** if required.
+
+💡 This design choice was made to:
+- Keep the framework simple and readable
+- Allow beginners to understand how tools interact
+- Avoid complex environment abstractions in early versions
+
+Future versions may introduce:
+- Auto path detection
+- Config file–based path management
+
+✔️ Once paths are adjusted, the framework works normally.
+
 
 ⚠️ Important Note
 
