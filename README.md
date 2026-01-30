@@ -44,87 +44,202 @@ Traditional penetration testing often suffers from:
 
 ---
 
-## 🔁 How the Framework Works (High-Level Flow)
+## 🧠 How the Framework Works
 
-### 1️⃣ Recon & Signal Collection
-The framework ingests signals such as:
-- Subdomains & endpoints  
-- Open ports and services  
-- Technology fingerprints  
-- HTTP headers & responses  
-- Misconfiguration indicators  
 
-All data is **normalised and de-duplicated** to reduce noise.
+The framework begins by collecting **raw signals** from multiple reconnaissance and scanning tools, such as:
+
+- DNS resolution & reachability (nslookup, ping)
+- Open ports & exposed services (Nmap)
+- Subdomains (Subfinder)
+- Live HTTP services, status codes & technologies (httpx)
+- Known misconfigurations & CVE templates (Nuclei)
+- Parameterised URLs (ParamSpider)
+- Directory & file discovery (FFUF / Dirsearch)
+- Web server misconfigurations (Nikto)
+- Input-based testing signals (SQLMap, XSStrike)
+
+All outputs are captured **as raw text**, without modifying or exploiting the target.
+
+✔ No blind exploitation  
+✔ Detection-focused  
+✔ Scope-friendly  
 
 ---
+### 2️⃣ Normalisation & Noise Reduction
 
-### 2️⃣ Correlation Engine
-Related findings are grouped together to build context.
+Instead of showing messy tool output, the framework:
+- Normalises data (domains, URLs, parameters)
+- De-duplicates repeated findings
+- Filters non-actionable noise
+
+This ensures the tester focuses on **signal, not spam**.
 
 Example:
-Exposed admin panel
-+ Weak authentication hint
-+ Known vulnerable tech stack
-= Potential privilege escalation path
+Multiple URLs → unique parameterised endpoints
+Multiple ports → parsed open services
+Multiple subdomains → consolidated attack surface
 
-This step converts **isolated issues into meaningful attack chains**.
 
 ---
 
-### 3️⃣ AI Reasoning Layer (Local LLM)
-Using **llama.cpp with GGUF models**, the AI:
-- Analyses relationships between findings  
-- Mimics real-world attacker logic  
-- Suggests the **most likely next attack step**
+### 3️⃣ Correlation Engine (Human-like Logic)
 
-✔ Fully local  
-✔ No cloud dependency  
-✔ Privacy-friendly  
+This is the **core brain before AI**.
 
-This is **decision support**, not blind exploitation.
+The framework correlates findings across tools to build **context**, such as:
 
----
+- Open web ports + subdomains + login hints
+- Parameterised URLs + SQLMap/XSS signals
+- Nikto misconfigs + Nuclei template hits
+- Many subdomains → higher chance of forgotten assets
 
-### 4️⃣ Attack Path Generation
-The framework structures AI output into:
-- Step-by-step attack paths  
-- Entry point → lateral movement → impact  
-- Priority and likelihood scoring  
+Isolated issues are converted into **meaningful attack hypotheses**.
 
-Result:
-```
-Recon → Initial Access → Expansion → Impact
-```
----
+> Example logic:
+Parameterised URL
 
-### 5️⃣ OWASP & Risk Mapping
-Each attack path is:
-- Mapped to **OWASP Top 10 categories**  
-- Ranked based on risk & exploitability  
+SQLMap heuristic signal
 
-This makes results **report-ready and management-friendly**.
+XSStrike reflection
+= High-value input validation hotspot
+
+
 
 ---
 
-### 6️⃣ Visualisation Layer
-All insights are presented through:
-- A clean Streamlit dashboard  
-- Easy-to-understand attack flows  
-- Human-readable explanations  
+### 4️⃣ AI Reasoning Layer (Local LLM – Optional)
 
-No messy terminal output — only **clear offensive insight**.
+The AI layer uses **llama.cpp with GGUF models**, running **fully locally**.
+
+The AI:
+- Reads the correlated attack surface summary
+- Mimics attacker-style reasoning
+- Suggests **high-level attack paths**
+- Explains **why certain areas matter more**
+
+✔ Fully offline  
+✔ No cloud API  
+✔ Privacy-first  
+✔ Exploit-less (planning only)
+
+AI is used for **decision support**, not automated hacking.
 
 ---
 
-## ✨ Key Features
+### 5️⃣ Attack Path Generation
+
+Based on correlation + AI reasoning, the framework generates:
+
+- Step-by-step **attack paths**
+- Logical phases:
+Recon → Entry Point → Expansion → Impact
+- Priority scoring (Critical / High / Medium / Low)
+- Risk context for each hotspot
+
+This helps answer the real question:
+> *“If I were attacking this legally, where would I start?”*
+
+---
+
+### 6️⃣ OWASP Top 10 Mapping (Signal-Based)
+
+Each finding is approximately mapped to **OWASP Top 10 categories**, such as:
+
+- A01 – Broken Access Control  
+- A03 – Injection (SQLi / XSS / Input issues)  
+- A05 – Security Misconfiguration  
+- A07 – Identification & Authentication Failures  
+
+⚠️ This is **signal-based mapping**, not a final verdict.  
+It is meant to make results:
+- Report-ready
+- Management-friendly
+- Easier to explain to non-technical stakeholders
+
+---
+
+### 7️⃣ Risk Scoring & Prioritisation
+
+The framework calculates a **rough risk score (0–100)** based on:
+- Number of open ports
+- Severity of Nuclei findings
+- Correlated vulnerability signals
+- Breadth of attack surface
+
+This score is:
+- Visual
+- Educational
+- Trendable (per session)
+
+It is **not a CVSS replacement**, but a prioritisation aid.
+
+---
+
+### 8️⃣ Visualisation Layer (Streamlit UI)
+
+All insights are presented through a clean Streamlit dashboard:
+
+- Attack surface overview
+- Risk metrics & trends
+- Open port & subdomain graphs
+- OWASP Top 10 tables
+- Timeline view (Recon → Attack planning)
+- Graphviz attack surface map
+- High-level attack tree visualisation
+
+No messy terminal output.  
+Only **clear offensive insight**.
+
+---
+
+### 9️⃣ Learning Mode & Explainability
+
+Every major tool output can be:
+- Explained in **beginner-friendly Hinglish**
+- Interpreted using local AI (optional)
+- Used as a learning reference
+
+This makes the framework ideal for:
+- Students
+- Junior pentesters
+- Interview preparation
+- Red team mindset training
+
+---
+
+## ✨ Key Features (Expanded)
 
 - 🔍 Multi-tool recon aggregation  
-- 🧠 AI-generated realistic attack paths  
-- 📊 Risk-based prioritisation  
-- 🧩 OWASP Top 10 mapping  
-- 🌐 Visual attack surface analysis  
+- 🧠 Human-like vulnerability correlation  
+- 🤖 Local AI reasoning (llama.cpp, GGUF)  
+- 📊 Risk-based prioritisation & scoring  
+- 🧩 OWASP Top 10 signal mapping  
+- 🌐 Visual attack surface & attack tree  
+- 🧪 ParamSpider → SQLMap → XSStrike smart pipeline  
+- 📈 Risk trend tracking (session-based)  
+- 🧠 Explainable outputs (learning-first)  
 - ⚡ Fast Streamlit UI  
 - 🖥️ Offline / local-first architecture  
+- 🛡️ Legal, authorised & exploit-less by design  
+
+---
+
+## ⚠️ Important Disclaimer
+
+This framework is designed for:
+- Legal & authorised security testing
+- Education & learning
+- Attack surface analysis
+- Decision support
+
+It does **NOT** provide:
+- Exploit payloads
+- Malware
+- Illegal automation
+
+Always follow scope, permissions, and local laws.
+
 
 ---
 
