@@ -11,6 +11,7 @@ import os
 import pandas as pd
 import altair as alt
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from installer import check_and_prompt_install
 
 # 🔽 EXTRA
 import re
@@ -2147,6 +2148,8 @@ if "theme" not in st.session_state:
 with st.sidebar:
     st.markdown("## ⚙️ Offensive Control Panel")
     st.write("Use only on **legal & authorised** targets. 👀")
+    st.markdown("### 🧰 Dependency Check")
+    check_and_prompt_install(core=True, optional=True)
 
     theme_choice = st.radio(
         "🎨 Theme",
