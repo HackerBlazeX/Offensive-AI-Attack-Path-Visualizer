@@ -9,6 +9,20 @@
 <h1 align="center">🛡️ Offensive AI – Attack Path Visualizer</h1>
 
 <p align="center">
+  <strong style="font-size:20px;">
+    💻 Developed by Dip Kar (HackerBlazeX) 🚀
+  </strong>
+</p>
+
+<p align="center">
+  <strong style="font-size:18px;">
+    ☕ Just give a domain — relax & sip your coffee. <br>
+    🤖 Offensive AI handles 80% of the web penetration testing <br>
+    📄 and delivers a ready-to-use report with AI-driven insights.
+  </strong>
+</p>
+
+<p align="center">
 AI-powered offensive security framework that transforms raw recon data into realistic, prioritised attack paths using local AI reasoning.
 </p>
 
@@ -221,6 +235,11 @@ This makes the framework ideal for:
 - 🧠 Explainable outputs (learning-first)  
 - ⚡ Fast Streamlit UI  
 - 🖥️ Offline / local-first architecture  
+- 📄 One-click professional reporting & export  
+- 🧾 Auto-generated attack surface & AI analysis report (Markdown)  
+- 🧠 Complete machine-readable scan bundle (JSON)  
+- ⏱️ Timestamped, domain-based filenames  
+- ⬇️ Instant download from the dashboard
 - 🛡️ Legal, authorised & exploit-less by design  
 
 ---
