@@ -267,7 +267,7 @@ This makes the framework usable for **both professionals and learners** 🚀
 ▶️ **Click below to watch the full demo**  
 (Shows real-time scanning, AI-assisted attack planning, visual graphs, and reporting flow)
 
-[![Watch the demo](assets/screenshots/ss-01-control-panel.png)](assets/videos/demo-framework-overview.mp4)
+[![Watch the demo](assets/screenshots/ss-01-control-panel.png)](https://github.com/HackerBlazeX/Offensive-AI-Attack-Path-Visualizer/releases)
 
 ---
 
