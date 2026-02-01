@@ -17,7 +17,7 @@
 <p align="center">
   <strong style="font-size:18px;">
     ☕ Just give a domain — relax & sip your coffee. <br>
-    🤖 Offensive AI handles 80% of the web penetration testing <br>
+    🤖 Offensive AI handles yours 80% of the web penetration testing task <br>
     📄 and delivers a ready-to-use report with AI-driven insights.
   </strong>
 </p>
