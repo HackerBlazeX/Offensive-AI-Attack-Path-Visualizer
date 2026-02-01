@@ -262,6 +262,15 @@ This makes the framework usable for **both professionals and learners** 🚀
 
 ---
 
+## 🎥 Framework Demo Video
+
+▶️ **Click below to watch the full demo**  
+(Shows real-time scanning, AI-assisted attack planning, visual graphs, and reporting flow)
+
+[![Watch the demo](assets/screenshots/ss-01-control-panel.png)](assets/videos/demo-framework-overview.mp4)
+
+---
+
 ## 📸 Framework Screenshots
 
 ### 1️⃣ Offensive Control Panel & AI Engine Selection
@@ -282,45 +291,43 @@ Auto-generated scan summary including resolved IP, scan timestamp, and overall r
 
 ---
 
-### 4️⃣ Attack Surface Overview
-![Attack Surface](assets/screenshots/ss-04-attack-surface.png)
-High-level external attack surface view covering DNS resolution and exposed services.
+### 4️⃣Owasp Top 10 Coverage
+![Owasp Top 10 Coverage](assets/screenshots/ss-04-attack-surface.png)
+Signal-based mapping of potential OWASP Top 10 risk categories derived from reconnaissance and scan outputs for prioritised review.
+---
+
+### 5️⃣ Timeline View-Recon to Attack Path Planning![Timeline View](assets/screenshots/ss-05-visual-graphs.png)
+Step-by-step visual flow from initial reconnaissance to structured attack-path planning for guided security testing.
 
 ---
 
-### 5️⃣ Visual Graphs & Risk Heatmap
-![Visual Graphs](assets/screenshots/ss-05-visual-graphs.png)
-Graphical analysis of open ports, subdomain distribution, and approximate risk heatmap.
-
----
-
-### 6️⃣ Risk Trend (Session-Based)
-![Risk Trend](assets/screenshots/ss-06-risk-trend.png)
+### 6️⃣ Domain, IP, Ports & Subdomain Visual Graph
+![Domain, IP, Ports & Subdomain Visual Graph](assets/screenshots/ss-06-risk-trend.png)
 Session-level risk trend tracking to observe exposure changes during reconnaissance.
 
 ---
 
-### 7️⃣ OWASP Top 10 Coverage (Approximate)
-![OWASP Mapping](assets/screenshots/ss-07-owasp.png)
-Signal-based OWASP Top 10 mapping derived from reconnaissance outputs.
+### 7️⃣ AI-Generated Attack Path & Ranking
+![AI-Generated Attack Path & Ranking](assets/screenshots/ss-07-owasp.png)
+High-level, AI-assisted attack path with asset ranking and testing priority to support informed and ethical security assessment planning.
 
 ---
 
-### 8️⃣ Recon → Attack Path Timeline
-![Timeline](assets/screenshots/ss-08-timeline.png)
-Step-by-step timeline from initial recon to structured attack path planning.
+### 8️⃣ Attack Tree & A.i Correlated Findings (Visual Graph)
+![Attack Tree & Correlated Findings (Visual Graph)](assets/screenshots/ss-08-timeline.png)
+Visual attack tree correlating reconnaissance findings, assets, and services to illustrate potential attack paths and relationships.
 
 ---
 
-### 9️⃣ Attack Surface Relationship Graph
-![Attack Graph](assets/screenshots/ss-09-attack-graph.png)
-Interactive graph visualizing domain, subdomains, resolved IPs, and exposed services.
+### 9️⃣ AI Risk Ranking
+![AI Risk Ranking](assets/screenshots/ss-09-attack-graph.png)
+AI-based ranking of assets and findings based on exposure signals and contextual risk indicators.
 
 ---
 
-### 🔟 AI-Generated Attack Path & Ranking
-![AI Attack Path](assets/screenshots/ss-10-ai-attack-path.png)
-High-level AI-generated attack path with asset prioritization for educational testing.
+### 🔟 Exploit Hint (AI-Assisted)
+![Exploit Hint (AI-Assisted)](assets/screenshots/ss-10-ai-attack-path.png)
+AI-assisted indicators to guide focused analysis and manual testing.
 
 ---
 

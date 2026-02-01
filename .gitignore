@@ -1,5 +1,16 @@
-threat_intel_singlefile.db
+# Python cache
 __pycache__/
+*.pyc
+
+# Reports / runtime output
+reports/
+
+# Environment / secrets
 .env
 secrets.toml
-reports/
+
+# Local database
+threat_intel_singlefile.db
+
+# Large local media (do NOT commit)
+assets/videos/
