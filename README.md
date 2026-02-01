@@ -262,6 +262,68 @@ This makes the framework usable for **both professionals and learners** 🚀
 
 ---
 
+## 📸 Framework Screenshots
+
+### 1️⃣ Offensive Control Panel & AI Engine Selection
+![Control Panel](assets/screenshots/ss-01-control-panel.png)
+Centralized control panel with local AI engine selection, dependency checks, theme switching, and legal-only usage guardrails.
+
+---
+
+### 2️⃣ Tool Overview & Getting Started
+![Home UI](assets/screenshots/ss-02-home-ui.png)
+Clean landing interface showing workflow guidance, scan modes, and offensive-security learning focus.
+
+---
+
+### 3️⃣ Scan Summary & Risk Snapshot
+![Scan Summary](assets/screenshots/ss-03-scan-summary.png)
+Auto-generated scan summary including resolved IP, scan timestamp, and overall risk score.
+
+---
+
+### 4️⃣ Attack Surface Overview
+![Attack Surface](assets/screenshots/ss-04-attack-surface.png)
+High-level external attack surface view covering DNS resolution and exposed services.
+
+---
+
+### 5️⃣ Visual Graphs & Risk Heatmap
+![Visual Graphs](assets/screenshots/ss-05-visual-graphs.png)
+Graphical analysis of open ports, subdomain distribution, and approximate risk heatmap.
+
+---
+
+### 6️⃣ Risk Trend (Session-Based)
+![Risk Trend](assets/screenshots/ss-06-risk-trend.png)
+Session-level risk trend tracking to observe exposure changes during reconnaissance.
+
+---
+
+### 7️⃣ OWASP Top 10 Coverage (Approximate)
+![OWASP Mapping](assets/screenshots/ss-07-owasp.png)
+Signal-based OWASP Top 10 mapping derived from reconnaissance outputs.
+
+---
+
+### 8️⃣ Recon → Attack Path Timeline
+![Timeline](assets/screenshots/ss-08-timeline.png)
+Step-by-step timeline from initial recon to structured attack path planning.
+
+---
+
+### 9️⃣ Attack Surface Relationship Graph
+![Attack Graph](assets/screenshots/ss-09-attack-graph.png)
+Interactive graph visualizing domain, subdomains, resolved IPs, and exposed services.
+
+---
+
+### 🔟 AI-Generated Attack Path & Ranking
+![AI Attack Path](assets/screenshots/ss-10-ai-attack-path.png)
+High-level AI-generated attack path with asset prioritization for educational testing.
+
+---
+
 ## ⚠️ Important Disclaimer
 
 This framework is designed for:
