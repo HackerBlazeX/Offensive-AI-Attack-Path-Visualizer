@@ -30,6 +30,7 @@ VERSION = "v5.8"
 # =========================
 st.set_page_config(
     page_title=APP_NAME,
+    page_icon="🛡️",
     layout="wide"
 )
 
@@ -2048,23 +2049,36 @@ def apply_theme(theme: str):
     st.markdown(
         f"""
         <style>
+        /* =========================
+           APP BASE
+        ========================= */
         [data-testid="stAppViewContainer"] {{
             background: {bg_grad};
             color: {text_main};
         }}
+
         [data-testid="stHeader"] {{
             background: transparent;
         }}
+
+        /* =========================
+           TITLES
+        ========================= */
         .big-title {{
             font-size: 2.4rem;
             font-weight: 900;
             letter-spacing: 0.06em;
             margin-bottom: 0.1rem;
         }}
+
         .subtitle {{
             font-size: 0.95rem;
             opacity: 0.85;
         }}
+
+        /* =========================
+           METRIC CARDS
+        ========================= */
         .metric-card {{
             padding: 0.9rem 1.1rem;
             border-radius: 1.1rem;
@@ -2073,17 +2087,23 @@ def apply_theme(theme: str):
             box-shadow: 0 18px 45px rgba(15,23,42,0.9);
             margin-bottom: 0.5rem;
         }}
+
         .metric-label {{
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
             opacity: 0.7;
         }}
+
         .metric-value {{
             font-size: 1.25rem;
             font-weight: 700;
             margin-top: 0.2rem;
         }}
+
+        /* =========================
+           BADGES / FOOTER
+        ========================= */
         .badge {{
             display: inline-block;
             padding: 0.25rem 0.7rem;
@@ -2093,6 +2113,7 @@ def apply_theme(theme: str):
             opacity: 0.9;
             margin-right: 0.3rem;
         }}
+
         .footer {{
             text-align: center;
             font-size: 0.8rem;
@@ -2101,46 +2122,76 @@ def apply_theme(theme: str):
             padding-top: 0.75rem;
             border-top: 1px solid rgba(148,163,184,0.25);
         }}
+
+        /* =========================
+           TABS
+        ========================= */
         .stTabs [data-baseweb="tab-list"] {{
             gap: 0.35rem;
         }}
+
         .stTabs [data-baseweb="tab"] {{
             border-radius: 999px;
             padding: 0.25rem 0.9rem;
             background: rgba(15,23,42,0.8);
             border: 1px solid rgba(148,163,184,0.3);
         }}
+
         .stTabs [data-baseweb="tab"]:hover {{
             border-color: {accent};
         }}
+
+        /* =========================
+           TIMELINE
+        ========================= */
         .timeline-step {{
             border-left: 2px solid {accent_soft};
             padding-left: 0.7rem;
             margin-bottom: 0.6rem;
         }}
+
         .timeline-title {{
             font-weight: 600;
             font-size: 0.9rem;
         }}
+
         .timeline-desc {{
             font-size: 0.8rem;
             opacity: 0.85;
         }}
+
+        /* =========================
+           🔥 FIX: REPORT & EXPORT TAB
+        ========================= */
+        div[data-testid="stMarkdownContainer"] {{
+            background: rgba(15, 23, 42, 0.96) !important;
+            color: #e5e7eb !important;
+            padding: 1.2rem !important;
+            border-radius: 14px !important;
+            border: 1px solid rgba(148,163,184,0.25) !important;
+        }}
+
+        div[data-testid="stMarkdownContainer"] pre,
+        div[data-testid="stMarkdownContainer"] code {{
+            background-color: #020617 !important;
+            color: #e5e7eb !important;
+            border-radius: 10px !important;
+            border: 1px solid rgba(148,163,184,0.35) !important;
+        }}
+
+        div[data-testid="stMarkdownContainer"] table {{
+            background: rgba(2, 6, 23, 0.9) !important;
+            color: #e5e7eb !important;
+        }}
+
         </style>
         """,
         unsafe_allow_html=True,
     )
 
-
 # =========================
 # STREAMLIT APP
 # =========================
-
-st.set_page_config(
-    page_title=APP_NAME,
-    page_icon="🛡️",
-    layout="wide",
-)
 
 if "theme" not in st.session_state:
     st.session_state["theme"] = "Cyber Neon"
@@ -2181,22 +2232,23 @@ with st.sidebar:
     # END SCAN MODE
     # =========================
 
-    st.markdown("#### 🔍 Core Tools")
-    use_nmap = st.checkbox("Nmap (fast service scan)", value=True)
-    use_subfinder = st.checkbox("Subfinder (subdomain enum)", value=True)
-    use_httpx = st.checkbox("httpx (probe target)", value=True)
-    use_nuclei = st.checkbox("Nuclei (web templates)", value=False)
+st.markdown("#### 🔍 Core Tools")
+use_nmap = st.checkbox("Nmap (fast service scan)", value=True)
+use_subfinder = st.checkbox("Subfinder (subdomain enum)", value=True)
+use_httpx = st.checkbox("httpx (probe target)", value=True)
+use_nuclei = st.checkbox("Nuclei (web templates)", value=False)
 
-    st.markdown("#### 🧨 Web Fuzzing / Vuln Scanners")
-    use_ffuf = st.checkbox("FFUF (directory fuzz)", value=False)
-    use_dirsearch = st.checkbox("Dirsearch (bruteforce dirs)", value=False)
-    use_paramspider = st.checkbox(
-        "ParamSpider → SQLMap + XSStrike AUTO pipeline",
-        value=False,
-        help="ParamSpider se URLs nikal ke automatically SQLMap & XSStrike me test karega (safe detection mode).",
-    )
+st.markdown("#### 🧨 Web Fuzzing / Vuln Scanners")
+use_ffuf = st.checkbox("FFUF (directory fuzz)", value=False)
+use_dirsearch = st.checkbox("Dirsearch (bruteforce dirs)", value=False)
 
-    # ✅ NEW: Performance controls for AUTO pipeline
+use_paramspider = st.checkbox(
+    "ParamSpider → SQLMap + XSStrike AUTO pipeline",
+    value=False,
+    help="ParamSpider se URLs nikal ke automatically SQLMap & XSStrike me test karega (safe detection mode).",
+)
+
+# ✅ AUTO PIPELINE CONTROLS (SIDEBAR ONLY)
 if use_paramspider:
     param_max_urls = st.slider(
         "Max URLs for AUTO pipeline (per scan)",
